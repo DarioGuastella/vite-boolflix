@@ -2,10 +2,11 @@
 export default {
     name: "MovieCard",
     props: {
-        movie: ""
+        movie: Object
     },
     mounted() {
-        console.log(this.movie)
+        console.log(this.movie.original_title)
+
     }
 }
 
@@ -15,7 +16,7 @@ export default {
 <template>
     <div class="cardContainer">
         <div class="shadowBox">
-            <h2>{{ movie }}</h2>
+            <h2>{{ movie.original_title }}</h2>
         </div>
     </div>
 </template>
