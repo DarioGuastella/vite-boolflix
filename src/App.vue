@@ -24,7 +24,7 @@ export default {
     getTitles() {
       const options = {
         method: 'GET',
-        url: 'https://api.themoviedb.org/3/search/movie?api_key=57a37e8d18ae807d791663e015455ec5',
+        url: 'https://api.themoviedb.org/3/search/movie',
         params: { query: `${store.searchInput}`, include_adult: 'false', language: 'en-US', page: '1' },
         headers: {
           accept: 'application/json',
@@ -33,7 +33,7 @@ export default {
       };
       const options2 = {
         method: 'GET',
-        url: 'https://api.themoviedb.org/3/search/tv?api_key=57a37e8d18ae807d791663e015455ec5',
+        url: 'https://api.themoviedb.org/3/search/tv',
         params: { query: `${store.searchInput}`, include_adult: 'false', language: 'en-US', page: '1' },
         headers: {
           accept: 'application/json',
