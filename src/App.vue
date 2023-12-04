@@ -20,12 +20,10 @@ export default {
   },
   methods: {
     getMovies() {
-
-      // `${store.searchInput}`
       const options = {
         method: 'GET',
         url: 'https://api.themoviedb.org/3/search/movie',
-        params: { query: "ritorno", include_adult: 'false', language: 'en-US', page: '1' },
+        params: { query: `${store.searchInput}`, include_adult: 'false', language: 'en-US', page: '1' },
         headers: {
           accept: 'application/json',
           Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1N2EzN2U4ZDE4YWU4MDdkNzkxNjYzZTAxNTQ1NWVjNSIsInN1YiI6IjY1NmRiMjlhODg2MzQ4MDBlYTQ4MGJjMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.qAUoWeOIhQGhVHy9HQBJxICWt09m-CRVKPnrYUSiHTQ'
