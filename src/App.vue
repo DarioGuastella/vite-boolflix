@@ -68,10 +68,12 @@ export default {
 <template>
   <main>
     <SearchMovie @search="getTitles" />
+    <h2>Films</h2> <br>
     <div class="wrapper">
-      <h2>Films</h2> <br>
       <MovieCard v-for="movie in store.movies" :movie="movie" />
-      <h2>Serie tv</h2><br>
+    </div>
+    <h2>Serie tv</h2><br>
+    <div class="wrapper">
       <TvSeriesCard v-for="serie in store.tvSeries" :tv="serie" />
     </div>
   </main>
@@ -81,6 +83,7 @@ export default {
 .wrapper {
   display: flex;
   flex-wrap: wrap;
+
 }
 
 h2 {
