@@ -17,7 +17,8 @@ export default {
     <div class="shadowBox cardContainer">
         <h2>{{ `Titolo: "${movie.title}"` }}</h2>
         <h2>{{ `Titolo originale: "${movie.original_title}"` }}</h2>
-        <h2>{{ `Lingua originale: ${movie.original_language}` }}</h2>
+        <h2 class="lang">Lingua originale:</h2>
+        <img :src="'/' + movie.original_language + '.png'">
         <h2>{{ `Voto: ${movie.vote_average}` }}</h2>
     </div>
 </template>
@@ -39,6 +40,14 @@ export default {
 }
 
 h2 {
+    margin-bottom: 2rem;
+}
+
+.lang {
+    margin-bottom: 1rem;
+}
+
+img {
     margin-bottom: 2rem;
 }
 </style>

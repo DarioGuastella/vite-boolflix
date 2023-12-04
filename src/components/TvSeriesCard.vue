@@ -17,7 +17,8 @@ export default {
     <div class="shadowBox cardContainer">
         <h2>{{ `Titolo: "${tv.name}"` }}</h2>
         <h2>{{ `Titolo originale: "${tv.original_name}"` }}</h2>
-        <h2>{{ `Lingua originale: ${tv.original_language}` }}</h2>
+        <h2 class="lang">Lingua originale:</h2>
+        <img :src="'/' + tv.original_language + '.png'">
         <h2>{{ `Voto: ${tv.vote_average}` }}</h2>
     </div>
 </template>
