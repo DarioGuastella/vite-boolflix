@@ -14,22 +14,20 @@ export default {
 </script>
 
 <template>
-    <div class="cardContainer">
-        <div class="shadowBox">
-            <h2>{{ movie.original_title }}</h2>
-        </div>
+    <div class="shadowBox cardContainer">
+        <h2>{{ `Titolo: "${movie.title}"` }}</h2>
+        <h2>{{ `Titolo originale: "${movie.original_title}"` }}</h2>
+        <h2>{{ `Lingua originale: ${movie.original_language}` }}</h2>
+        <h2>{{ `Voto: ${movie.vote_average}` }}</h2>
     </div>
 </template>
 
 <style scoped>
 .cardContainer {
     width: calc(100% / 5 - 4rem);
-    background-color: crimson;
     aspect-ratio: 1;
     margin: 2rem;
     line-height: 1.5;
-    padding: 2rem;
-    border-radius: 10px;
     word-break: break-word;
 }
 
@@ -40,7 +38,6 @@ export default {
     height: 548px;
 }
 
-h4,
 h2 {
     margin-bottom: 2rem;
 }

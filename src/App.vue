@@ -22,7 +22,7 @@ export default {
     getMovies() {
       const options = {
         method: 'GET',
-        url: 'https://api.themoviedb.org/3/search/movie',
+        url: 'https://api.themoviedb.org/3/search/movie?api_key=57a37e8d18ae807d791663e015455ec5',
         params: { query: `${store.searchInput}`, include_adult: 'false', language: 'en-US', page: '1' },
         headers: {
           accept: 'application/json',

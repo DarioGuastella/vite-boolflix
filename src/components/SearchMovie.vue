@@ -10,9 +10,7 @@ export default {
     },
     methods: {
         searchMovie() {
-            // console.log("Tipo di birra: ", this.store.beersType);
             this.$emit("search");
-            // console.log(this.store.beersType);
         }
     },
     mounted() {
