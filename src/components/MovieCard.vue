@@ -7,7 +7,7 @@ export default {
     mounted() {
         console.log(this.movie.original_title)
 
-    }
+    },
 }
 
 
@@ -25,18 +25,17 @@ export default {
 
 <style scoped>
 .cardContainer {
-    width: calc(100% / 5 - 4rem);
+    width: calc(100% / 5 - 1rem);
     aspect-ratio: 1;
-    margin: 2rem;
+    margin: 0.5rem;
     line-height: 1.5;
     word-break: break-word;
 }
 
 .shadowBox {
     background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 25px;
     padding: 2rem;
-    height: 548px;
+
 }
 
 h2 {
@@ -49,5 +48,6 @@ h2 {
 
 img {
     margin-bottom: 2rem;
+    width: 50px;
 }
 </style>

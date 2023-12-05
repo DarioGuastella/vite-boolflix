@@ -1,12 +1,12 @@
 <script>
 import axios from 'axios';
 import { store } from "./store.js"
-import SearchMovie from "./components/SearchMovie.vue"
+import SearchTitles from "./components/SearchTitles.vue"
 import MovieCard from "./components/MovieCard.vue"
 import TvSeriesCard from "./components/TvSeriesCard.vue"
 export default {
   components: {
-    SearchMovie,
+    SearchTitles,
     MovieCard,
     TvSeriesCard,
 
@@ -44,7 +44,6 @@ export default {
       axios
         .request(options)
         .then(function (response) {
-          console.log(response.data.results);
           store.movies = response.data.results;
         })
         .catch(function (error) {
@@ -53,7 +52,6 @@ export default {
       axios
         .request(options2)
         .then(function (response) {
-          console.log("serie tv" + response.data.results);
           store.tvSeries = response.data.results;
         })
         .catch(function (error) {
@@ -67,7 +65,7 @@ export default {
 
 <template>
   <main>
-    <SearchMovie @search="getTitles" />
+    <SearchTitles @search="getTitles" />
     <h2>Films</h2> <br>
     <div class="wrapper">
       <MovieCard v-for="movie in store.movies" :movie="movie" />
