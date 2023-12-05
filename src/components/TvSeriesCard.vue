@@ -46,6 +46,10 @@ export default {
     text-align: center;
 }
 
+.yellow {
+    color: goldenrod;
+}
+
 .noCover {
     text-align: center;
     padding-top: 14rem;
