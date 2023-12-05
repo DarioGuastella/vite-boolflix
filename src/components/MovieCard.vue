@@ -32,7 +32,9 @@ export default {
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use "../styles/partials/_variables.scss" as *;
+
 .cardContainer {
     width: calc(100% / 5 - 0.4rem);
     margin: 0.2rem;

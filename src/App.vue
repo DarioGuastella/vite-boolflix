@@ -75,7 +75,12 @@ export default {
   </main>
 </template>
 
-<style scoped>
+
+<style lang="scss">
+@use './styles/general.scss';
+</style>
+
+<style scoped lang="scss">
 .wrapper {
   display: flex;
   flex-wrap: wrap;

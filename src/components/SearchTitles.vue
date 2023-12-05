@@ -27,7 +27,7 @@ export default {
     </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .searchBox {
     text-align: center;
     margin-top: 2rem;
