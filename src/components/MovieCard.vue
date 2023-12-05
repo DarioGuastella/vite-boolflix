@@ -17,7 +17,9 @@ export default {
     },
 
     methods: {
-
+        getStars(n) {
+            return Math.ceil(n / 2)
+        }
     }
 }
 
@@ -26,52 +28,6 @@ export default {
 
 <template>
     <div class="cardContainer">
-        <!-- <h2 class="title">Titolo: </h2>
-        <h2>{{ movie.title }}</h2>
-        <h2 class="title">Titolo originale: </h2>
-        <h2>{{ movie.original_title }}</h2>
-        <h2 class="lang">Lingua originale:</h2>
-        <img class="flag" v-if="this.store.flags.includes(movie.original_language)"
-            :src="'/' + movie.original_language + '.png'">
-        <h2 v-else>{{ movie.original_language }}</h2>
-        <span v-if="(Math.ceil(movie.vote_average / 2)) == 1">
-            <h2>Voto: </h2>
-            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-        </span>
-        <span v-if="(Math.ceil(movie.vote_average / 2)) == 2">
-            <h2>Voto: </h2>
-            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-        </span>
-        <span v-if="(Math.ceil(movie.vote_average / 2)) == 3">
-            <h2>Voto: </h2>
-            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-        </span>
-        <span v-if="(Math.ceil(movie.vote_average / 2)) == 4">
-            <h2>Voto: </h2>
-            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-        </span>
-        <span v-if="(Math.ceil(movie.vote_average / 2)) == 5">
-            <h2>Voto: </h2>
-            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-        </span>
-        <div v-if="(Math.ceil(movie.vote_average / 2)) == 0">
-            <h2>Voto:</h2>
-            <h2>0</h2>
-        </div> -->
-
-        <!-- <img v-if="movie.poster_path" :src="this.store.coversUrl + movie.poster_path" alt="">
-        <h2 class="noCover" v-else>Copertina non disponibile</h2> -->
-
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
@@ -83,44 +39,18 @@ export default {
                     <h2>{{ movie.title }}</h2>
                     <h2 class="title">Titolo originale: </h2>
                     <h2>{{ movie.original_title }}</h2>
-                    <div class="mb-4" v-if="(Math.ceil(movie.vote_average / 2)) == 1">
+                    <div class="mb-4" v-if="movie.vote_average != 0">
                         <h2 class="mb-0">Voto: </h2>
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                        <font-awesome-icon v-for="n in getStars(movie.vote_average)" :icon="['fas', 'star']"
+                            class="yellow" />
                     </div>
-                    <div class="mb-4" v-if="(Math.ceil(movie.vote_average / 2)) == 2">
-                        <h2 class="mb-0">Voto: </h2>
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                    </div>
-                    <div class="mb-4" v-if="(Math.ceil(movie.vote_average / 2)) == 3">
-                        <h2 class="mb-0">Voto: </h2>
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                    </div>
-                    <div class="mb-4" v-if="(Math.ceil(movie.vote_average / 2)) == 4">
-                        <h2 class="mb-0">Voto: </h2>
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                    </div>
-                    <div class="mb-4" v-if="(Math.ceil(movie.vote_average / 2)) == 5">
-                        <h2 class="mb-0">Voto: </h2>
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                    </div>
+
                     <div v-if="(Math.ceil(movie.vote_average / 2)) == 0">
                         <h2>Voto:</h2>
                         <h2>0</h2>
                     </div>
                     <h2 class="lang">Trama:</h2>
                     <h2>{{ movie.overview }}</h2>
-                    <!-- <img class="flag" v-if="this.store.flags.includes(movie.original_language)"
-                        :src="'/' + movie.original_language + '.png'"> -->
                 </div>
             </div>
         </div>
