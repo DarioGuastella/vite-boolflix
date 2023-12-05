@@ -13,6 +13,11 @@ export default {
     mounted() {
         // console.log(this.tv.original_name)
 
+    },
+    methods: {
+        getStars(n) {
+            Math.ceil(n / 2)
+        }
     }
 }
 
@@ -45,35 +50,9 @@ export default {
                     <h2>{{ tv.original_name }}</h2>
                     <div class="mb-4" v-if="(Math.ceil(tv.vote_average / 2)) == 1">
                         <h2 class="mb-0">Voto: </h2>
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                        <font-awesome-icon v-for="i in getStars(tv.vote_average)" :icon="['fas', 'star']" class="yellow" />
                     </div>
-                    <div class="mb-4" v-if="(Math.ceil(tv.vote_average / 2)) == 2">
-                        <h2 class="mb-0">Voto: </h2>
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                    </div>
-                    <div class="mb-4" v-if="(Math.ceil(tv.vote_average / 2)) == 3">
-                        <h2 class="mb-0">Voto: </h2>
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                    </div>
-                    <div class="mb-4" v-if="(Math.ceil(tv.vote_average / 2)) == 4">
-                        <h2 class="mb-0">Voto: </h2>
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                    </div>
-                    <div class="mb-4" v-if="(Math.ceil(tv.vote_average / 2)) == 5">
-                        <h2 class="mb-0">Voto: </h2>
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                    </div>
-                    <div v-if="(Math.ceil(tv.vote_average / 2)) == 0">
+                    <div v-if="getStars(tv.vote_average) == 0">
                         <h2>Voto:</h2>
                         <h2>0</h2>
                     </div>
