@@ -1,8 +1,14 @@
 <script>
+import { store } from "../store.js"
 export default {
     name: "MovieCard",
     props: {
         movie: Object
+    },
+    data() {
+        return {
+            store,
+        }
     },
     mounted() {
         // console.log(this.movie.original_title)
@@ -15,10 +21,13 @@ export default {
 
 <template>
     <div class="shadowBox cardContainer">
-        <h2>{{ `Titolo: "${movie.title}"` }}</h2>
-        <h2>{{ `Titolo originale: "${movie.original_title}"` }}</h2>
+        <h2 class="title">Titolo: </h2>
+        <h2>{{ movie.title }}</h2>
+        <h2 class="title">Titolo originale: </h2>
+        <h2>{{ movie.original_title }}</h2>
         <h2 class="lang">Lingua originale:</h2>
-        <img :src="'/' + movie.original_language + '.png'">
+        <img v-if="this.store.flags.includes(movie.original_language)" :src="'/' + movie.original_language + '.png'">
+        <h2 v-else>{{ movie.original_language }}</h2>
         <h2>{{ `Voto: ${movie.vote_average}` }}</h2>
     </div>
 </template>
@@ -29,6 +38,12 @@ export default {
     margin: 0.2rem;
     line-height: 1.5;
     word-break: break-word;
+    height: 30rem;
+    text-align: center;
+}
+
+.title {
+    margin-bottom: 0.2rem;
 }
 
 .shadowBox {
