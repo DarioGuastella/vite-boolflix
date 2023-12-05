@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-    <div class="shadowBox cardContainer">
+    <div class="cardContainer">
         <!-- <h2 class="title">Titolo: </h2>
         <h2>{{ movie.title }}</h2>
         <h2 class="title">Titolo originale: </h2>
@@ -158,10 +158,6 @@ export default {
     margin-bottom: 0.2rem;
 }
 
-.shadowBox {
-    background-color: rgb(48, 48, 47);
-}
-
 h2 {
     margin-bottom: 2rem;
     font-size: 1.3rem;
@@ -212,7 +208,7 @@ img {
 }
 
 .flip-card-back {
-    background-color: rgb(22, 22, 22);
+    background-color: rgb(44, 43, 43);
     color: white;
     transform: rotateY(180deg);
 }
