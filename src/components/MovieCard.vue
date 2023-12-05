@@ -69,8 +69,61 @@ export default {
             <h2>0</h2>
         </div> -->
 
-        <img v-if="movie.poster_path" :src="this.store.coversUrl + movie.poster_path" alt="">
-        <h2 class="noCover" v-else>Copertina non disponibile</h2>
+        <!-- <img v-if="movie.poster_path" :src="this.store.coversUrl + movie.poster_path" alt="">
+        <h2 class="noCover" v-else>Copertina non disponibile</h2> -->
+
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img v-if="movie.poster_path" :src="this.store.coversUrl + movie.poster_path" alt="">
+                    <h2 class="noCover" v-else>Copertina non disponibile</h2>
+                </div>
+                <div class="flip-card-back">
+                    <h2 class="title">Titolo: </h2>
+                    <h2>{{ movie.title }}</h2>
+                    <h2 class="title">Titolo originale: </h2>
+                    <h2>{{ movie.original_title }}</h2>
+                    <h2 class="lang">Lingua originale:</h2>
+                    <img class="flag" v-if="this.store.flags.includes(movie.original_language)"
+                        :src="'/' + movie.original_language + '.png'">
+                    <h2 v-else>{{ movie.original_language }}</h2>
+                    <span v-if="(Math.ceil(movie.vote_average / 2)) == 1">
+                        <h2>Voto: </h2>
+                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                    </span>
+                    <span v-if="(Math.ceil(movie.vote_average / 2)) == 2">
+                        <h2>Voto: </h2>
+                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                    </span>
+                    <span v-if="(Math.ceil(movie.vote_average / 2)) == 3">
+                        <h2>Voto: </h2>
+                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                    </span>
+                    <span v-if="(Math.ceil(movie.vote_average / 2)) == 4">
+                        <h2>Voto: </h2>
+                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                    </span>
+                    <span v-if="(Math.ceil(movie.vote_average / 2)) == 5">
+                        <h2>Voto: </h2>
+                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                        <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+                    </span>
+                    <div v-if="(Math.ceil(movie.vote_average / 2)) == 0">
+                        <h2>Voto:</h2>
+                        <h2>0</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -122,5 +175,45 @@ img {
     margin-bottom: 2rem;
     width: 100%;
     height: 100%;
+}
+
+.flip-card {
+    background-color: transparent;
+    height: 100%;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-color: #bbb;
+    color: black;
+}
+
+.flip-card-back {
+    background-color: rgb(22, 22, 22);
+    color: white;
+    transform: rotateY(180deg);
 }
 </style>
