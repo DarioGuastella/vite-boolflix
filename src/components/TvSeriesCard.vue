@@ -43,44 +43,43 @@ export default {
                     <h2>{{ tv.name }}</h2>
                     <h2 class="name">Titolo originale: </h2>
                     <h2>{{ tv.original_name }}</h2>
-                    <h2 class="lang">Lingua originale:</h2>
-                    <img class="flag" v-if="this.store.flags.includes(tv.original_language)"
-                        :src="'/' + tv.original_language + '.png'">
-                    <h2 v-else>{{ tv.original_language }}</h2>
-                    <span v-if="(Math.ceil(tv.vote_average / 2)) == 1">
-                        <h2>Voto: </h2>
+                    <div class="mb-4" v-if="(Math.ceil(tv.vote_average / 2)) == 1">
+                        <h2 class="mb-0">Voto: </h2>
                         <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                    </span>
-                    <span v-if="(Math.ceil(tv.vote_average / 2)) == 2">
-                        <h2>Voto: </h2>
+                    </div>
+                    <div class="mb-4" v-if="(Math.ceil(tv.vote_average / 2)) == 2">
+                        <h2 class="mb-0">Voto: </h2>
                         <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
                         <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                    </span>
-                    <span v-if="(Math.ceil(tv.vote_average / 2)) == 3">
-                        <h2>Voto: </h2>
+                    </div>
+                    <div class="mb-4" v-if="(Math.ceil(tv.vote_average / 2)) == 3">
+                        <h2 class="mb-0">Voto: </h2>
                         <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
                         <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
                         <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                    </span>
-                    <span v-if="(Math.ceil(tv.vote_average / 2)) == 4">
-                        <h2>Voto: </h2>
+                    </div>
+                    <div class="mb-4" v-if="(Math.ceil(tv.vote_average / 2)) == 4">
+                        <h2 class="mb-0">Voto: </h2>
                         <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
                         <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
                         <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
                         <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                    </span>
-                    <span v-if="(Math.ceil(tv.vote_average / 2)) == 5">
-                        <h2>Voto: </h2>
+                    </div>
+                    <div class="mb-4" v-if="(Math.ceil(tv.vote_average / 2)) == 5">
+                        <h2 class="mb-0">Voto: </h2>
                         <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
                         <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
                         <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
                         <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
                         <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
-                    </span>
+                    </div>
                     <div v-if="(Math.ceil(tv.vote_average / 2)) == 0">
                         <h2>Voto:</h2>
                         <h2>0</h2>
                     </div>
+                    <h2 class="lang">Trama:</h2>
+                    <h2 class="lang">{{ tv.overview }}</h2>
+
                 </div>
             </div>
         </div>
@@ -159,11 +158,13 @@ h2 {
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    overflow: auto;
 }
 
 .flip-card-front {
     background-color: #bbb;
     color: black;
+    overflow: hidden;
 }
 
 .flip-card-back {
