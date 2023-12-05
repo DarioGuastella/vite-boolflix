@@ -26,14 +26,13 @@ export default {
 <style scoped>
 .cardContainer {
     width: calc(100% / 5 - 1rem);
-    aspect-ratio: 1;
-    margin: 0.5rem;
+    margin: 0.2rem;
     line-height: 1.5;
     word-break: break-word;
 }
 
 .shadowBox {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(48, 48, 47);
     padding: 2rem;
 
 }
