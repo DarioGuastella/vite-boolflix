@@ -72,12 +72,12 @@ export default {
     </div>
   </header>
   <main>
-
-    <h2>Film</h2> <br>
+    <h2 v-if="!store.movies.length">Cerca tra film e serie TV</h2>
+    <h2 v-if="store.movies.length">Film</h2> <br>
     <div class="wrapper">
       <MovieCard v-for="movie in store.movies" :movie="movie" />
     </div>
-    <h2>Serie tv</h2><br>
+    <h2 v-if="store.movies.length">Serie tv</h2><br>
     <div class="wrapper">
       <TvSeriesCard v-for="serie in store.tvSeries" :tv="serie" />
     </div>
