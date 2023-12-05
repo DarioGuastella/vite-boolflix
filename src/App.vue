@@ -25,7 +25,7 @@ export default {
       const options = {
         method: 'GET',
         url: this.store.apiMovUrl,
-        params: { query: `${store.searchInput}`, include_adult: 'false', language: 'en-US', page: '1', api_key: this.store.apiKey },
+        params: { query: `${store.searchInput}`, include_adult: 'false', language: 'it-IT', page: '1', api_key: this.store.apiKey },
         headers: {
           accept: 'application/json',
         }
