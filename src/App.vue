@@ -62,9 +62,17 @@ export default {
 </script>
 
 <template>
+  <header>
+    <div class="myContainer d-flex justify-content-between">
+      <img id="logo"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/799px-Netflix_2015_logo.svg.png"
+        alt="">
+      <SearchTitles @search="getTitles" />
+    </div>
+  </header>
   <main>
-    <SearchTitles @search="getTitles" />
-    <h2>Films</h2> <br>
+
+    <h2>Film</h2> <br>
     <div class="wrapper">
       <MovieCard v-for="movie in store.movies" :movie="movie" />
     </div>
@@ -87,6 +95,23 @@ export default {
   margin: 0 auto;
   width: 90%;
 
+}
+
+#logo {
+  width: 16%;
+}
+
+.myContainer {
+  width: 90%;
+  margin: 0 auto;
+  align-items: center;
+}
+
+header {
+  background-color: black;
+  height: 7rem;
+  align-items: center;
+  display: flex;
 }
 
 h2 {

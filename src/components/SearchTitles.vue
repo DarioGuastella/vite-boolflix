@@ -20,9 +20,8 @@ export default {
 
 <template>
     <div class="searchBox">
-        <h2>Cerca film o serie TV</h2>
-        <input type="text" placeholder="Cerca film..." v-model="store.searchInput" @keyup.enter="searchTitle">
-        <button @click="searchTitle">Cerca</button>
+        <!-- <h2>Cerca film o serie TV</h2> -->
+        <input type="text" placeholder="Cerca film e serie tv" v-model="store.searchInput" @keyup.enter="searchTitle">
 
     </div>
 </template>
@@ -30,6 +29,5 @@ export default {
 <style scoped lang="scss">
 .searchBox {
     text-align: center;
-    margin-top: 2rem;
 }
 </style>
