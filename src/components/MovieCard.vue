@@ -11,9 +11,14 @@ export default {
         }
     },
     mounted() {
-        // console.log(this.movie.original_title)
+        // // console.log(this.movie.original_title)
+
 
     },
+
+    methods: {
+
+    }
 }
 
 
@@ -29,8 +34,41 @@ export default {
         <img class="flag" v-if="this.store.flags.includes(movie.original_language)"
             :src="'/' + movie.original_language + '.png'">
         <h2 v-else>{{ movie.original_language }}</h2>
-        <h2 v-if="movie.vote_average != 0">{{ "Voto: " + Math.ceil(movie.vote_average / 2) }}</h2>
-        <h2 v-else>Voto: 1</h2>
+        <span v-if="(Math.ceil(movie.vote_average / 2)) == 1" class="rating">
+            <h2>Voto: </h2>
+            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+        </span>
+        <span v-if="(Math.ceil(movie.vote_average / 2)) == 2" class="rating">
+            <h2>Voto: </h2>
+            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+        </span>
+        <span v-if="(Math.ceil(movie.vote_average / 2)) == 3" class="rating">
+            <h2>Voto: </h2>
+            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+        </span>
+        <span v-if="(Math.ceil(movie.vote_average / 2)) == 4" class="rating">
+            <h2>Voto: </h2>
+            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+        </span>
+        <span v-if="(Math.ceil(movie.vote_average / 2)) == 5" class="rating">
+            <h2>Voto: </h2>
+            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+            <font-awesome-icon :icon="['fas', 'star']" class="yellow" />
+        </span>
+        <div v-if="(Math.ceil(movie.vote_average / 2)) == 0" class="rating">
+            <h2>Voto:</h2>
+            <h2>0</h2>
+        </div>
+
         <!-- <img v-if="movie.poster_path" :src="this.store.coversUrl + movie.poster_path" alt="">
         <h2 class="noCover" v-else>Copertina non disponibile</h2> -->
     </div>
