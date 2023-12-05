@@ -21,15 +21,17 @@ export default {
 
 <template>
     <div class="shadowBox cardContainer">
-        <!-- <h2 class="title">Titolo: </h2>
+        <h2 class="title">Titolo: </h2>
         <h2>{{ movie.title }}</h2>
         <h2 class="title">Titolo originale: </h2>
         <h2>{{ movie.original_title }}</h2>
         <h2 class="lang">Lingua originale:</h2>
-        <img v-if="this.store.flags.includes(movie.original_language)" :src="'/' + movie.original_language + '.png'">
+        <img class="flag" v-if="this.store.flags.includes(movie.original_language)"
+            :src="'/' + movie.original_language + '.png'">
         <h2 v-else>{{ movie.original_language }}</h2>
-        <h2>{{ `Voto: ${movie.vote_average}` }}</h2> -->
-        <img :src="this.store.coversUrl + movie.poster_path" alt="">
+        <h2>{{ "Voto: " + Math.ceil(movie.vote_average / 2) }}</h2>
+        <!-- <img v-if="movie.poster_path" :src="this.store.coversUrl + movie.poster_path" alt="">
+        <h2 class="noCover" v-else>Copertina non disponibile</h2> -->
     </div>
 </template>
 
@@ -43,6 +45,17 @@ export default {
     word-break: break-word;
     height: 30rem;
     text-align: center;
+}
+
+.flag {
+    width: 4rem;
+    object-fit: contain;
+    height: auto;
+}
+
+.noCover {
+    text-align: center;
+    padding-top: 14rem;
 }
 
 .title {

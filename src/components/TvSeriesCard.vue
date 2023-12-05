@@ -26,9 +26,9 @@ export default {
         <h2 class="title">Titolo originale: </h2>
         <h2>{{ tv.name }}</h2>
         <h2 class="lang">Lingua originale:</h2>
-        <img v-if="this.store.flags.includes(tv.original_language)" :src="'/' + tv.original_language + '.png'">
+        <img class="flag" v-if="this.store.flags.includes(tv.original_language)" :src="'/' + tv.original_language + '.png'">
         <h2 v-else>{{ tv.original_language }} </h2>
-        <h2>{{ `Voto: ${tv.vote_average}` }}</h2> -->
+        <h2>{{ "Voto: " + Math.ceil(tv.vote_average / 2) }}</h2> -->
         <img v-if="tv.poster_path" :src="this.store.coversUrl + tv.poster_path" alt="">
         <h2 class="noCover" v-else>Copertina non disponibile</h2>
     </div>
@@ -49,6 +49,12 @@ export default {
 .noCover {
     text-align: center;
     padding-top: 14rem;
+}
+
+.flag {
+    width: 4rem;
+    object-fit: contain;
+    height: auto;
 }
 
 .title {
