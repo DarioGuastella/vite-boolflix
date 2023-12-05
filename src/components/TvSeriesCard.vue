@@ -25,7 +25,7 @@ export default {
 
 <style scoped>
 .cardContainer {
-    width: calc(100% / 5 - 1rem);
+    width: calc(100% / 5 - 0.4rem);
     margin: 0.2rem;
     line-height: 1.5;
     word-break: break-word;
@@ -43,5 +43,6 @@ img {
 
 h2 {
     margin-bottom: 2rem;
+    font-size: 1.3rem;
 }
 </style>

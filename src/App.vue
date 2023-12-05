@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     getTitles() {
-      const options = {
+      const movies = {
         method: 'GET',
         url: this.store.apiMovUrl,
         params: { query: `${store.searchInput}`, include_adult: 'false', language: 'it-IT', page: '1', api_key: this.store.apiKey },
@@ -30,7 +30,7 @@ export default {
           accept: 'application/json',
         }
       };
-      const options2 = {
+      const tvShows = {
         method: 'GET',
         url: this.store.apiTvUrl,
         params: { query: `${store.searchInput}`, include_adult: 'false', language: 'en-US', page: '1', api_key: this.store.apiKey },
@@ -40,7 +40,7 @@ export default {
       };
 
       axios
-        .request(options)
+        .request(movies)
         .then(function (response) {
           store.movies = response.data.results;
         })
@@ -48,7 +48,7 @@ export default {
           console.error(error);
         });
       axios
-        .request(options2)
+        .request(tvShows)
         .then(function (response) {
           store.tvSeries = response.data.results;
         })
@@ -79,6 +79,8 @@ export default {
 .wrapper {
   display: flex;
   flex-wrap: wrap;
+  margin: 0 auto;
+  width: 90%;
 
 }
 
