@@ -43,11 +43,13 @@ export default {
                         <h2 class="mb-0">Voto: </h2>
                         <font-awesome-icon v-for="n in getStars(movie.vote_average)" :icon="['fas', 'star']"
                             class="yellow" />
+                        <font-awesome-icon v-for="n in (5 - getStars(movie.vote_average))" :icon="['fas', 'star']"
+                            class="text-white" />
                     </div>
 
                     <div v-if="(Math.ceil(movie.vote_average / 2)) == 0">
                         <h2>Voto:</h2>
-                        <h2>0</h2>
+                        <font-awesome-icon v-for="n in (5)" :icon="['fas', 'star']" class="text-white mb-4" />
                     </div>
                     <h2 class="lang">Trama:</h2>
                     <h2>{{ movie.overview }}</h2>

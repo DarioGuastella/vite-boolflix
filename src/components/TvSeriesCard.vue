@@ -26,17 +26,6 @@ export default {
 
 <template>
     <div class="cardContainer">
-        <!-- <h2 class="name">Titolo: </h2>
-        <h2>{{ tv.name }}</h2>
-        <h2 class="name">Titolo originale: </h2>
-        <h2>{{ tv.name }}</h2>
-        <h2 class="lang">Lingua originale:</h2>
-        <img class="flag" v-if="this.store.flags.includes(tv.original_language)" :src="'/' + tv.original_language + '.png'">
-        <h2 v-else>{{ tv.original_language }} </h2>
-        <h2>{{ "Voto: " + Math.ceil(tv.vote_average / 2) }}</h2> -->
-        <!-- <img v-if="tv.poster_path" :src="this.store.coversUrl + tv.poster_path" alt="">
-        <h2 class="noCover" v-else>Copertina non disponibile</h2> -->
-
         <div class="flip-card">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
@@ -51,10 +40,12 @@ export default {
                     <div class="mb-4" v-if="tv.vote_average != 0">
                         <h2 class="mb-0">Voto: </h2>
                         <font-awesome-icon v-for="n in getStars(tv.vote_average)" :icon="['fas', 'star']" class="yellow" />
+                        <font-awesome-icon v-for="n in (5 - getStars(tv.vote_average))" :icon="['fas', 'star']"
+                            class="text-white" />
                     </div>
                     <div v-if="(Math.ceil(tv.vote_average / 2)) == 0">
                         <h2>Voto:</h2>
-                        <h2>0</h2>
+                        <font-awesome-icon v-for="n in (5)" :icon="['fas', 'star']" class="text-white mb-4" />
                     </div>
                     <h2 class="lang">Trama:</h2>
                     <h2 class="lang">{{ tv.overview }}</h2>
