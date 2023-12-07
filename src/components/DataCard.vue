@@ -1,9 +1,9 @@
 <script>
 import { store } from "../store.js"
 export default {
-	name: "MovieCard",
+	name: "DataCard",
 	props: {
-		movie: Object
+		data: Object
 	},
 	data() {
 		return {
@@ -11,7 +11,7 @@ export default {
 		}
 	},
 	mounted() {
-		// // console.log(this.movie.original_title)
+		// // console.log(this.data.original_title)
 
 
 	},
@@ -31,27 +31,27 @@ export default {
 		<div class="flip-card">
 			<div class="flip-card-inner">
 				<div class="flip-card-front">
-					<img v-if="movie.poster_path" :src="this.store.coversUrl + movie.poster_path" alt="">
+					<img v-if="data.poster_path" :src="this.store.coversUrl + data.poster_path" alt="">
 					<h2 class="noCover" v-else><img
 							src="https://media.tenor.com/lx2WSGRk8bcAAAAC/pulp-fiction-john-travolta.gif" alt="">
 					</h2>
 				</div>
 				<div class="flip-card-back">
 					<h2 class="title">Titolo: </h2>
-					<h2 v-if="movie.title">{{ movie.title }}</h2>
-					<h2 v-else>{{ movie.name }}</h2>
+					<h2 v-if="data.title">{{ data.title }}</h2>
+					<h2 v-else>{{ data.name }}</h2>
 					<h2 class="title">Titolo originale: </h2>
-					<h2 v-if="movie.original_title">{{ movie.original_title }}</h2>
-					<h2 v-else>{{ movie.original_name }}</h2>
+					<h2 v-if="data.original_title">{{ data.original_title }}</h2>
+					<h2 v-else>{{ data.original_name }}</h2>
 					<div class="mb-4">
 						<h2 class="mb-0">Voto: </h2>
-						<font-awesome-icon v-for="n in getStars(movie.vote_average)" :icon="['fas', 'star']"
+						<font-awesome-icon v-for="n in getStars(data.vote_average)" :icon="['fas', 'star']"
 							class="yellow" />
-						<font-awesome-icon v-for="n in (5 - getStars(movie.vote_average))" :icon="['fas', 'star']"
+						<font-awesome-icon v-for="n in (5 - getStars(data.vote_average))" :icon="['fas', 'star']"
 							class="text-white" />
 					</div>
 					<h2 class="lang">Trama:</h2>
-					<h2>{{ movie.overview }}</h2>
+					<h2>{{ data.overview }}</h2>
 				</div>
 			</div>
 		</div>
