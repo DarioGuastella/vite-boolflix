@@ -32,7 +32,9 @@ export default {
 			<div class="flip-card-inner">
 				<div class="flip-card-front">
 					<img v-if="movie.poster_path" :src="this.store.coversUrl + movie.poster_path" alt="">
-					<h2 class="noCover" v-else>Copertina non disponibile</h2>
+					<h2 class="noCover" v-else><img
+							src="https://media.tenor.com/lx2WSGRk8bcAAAAC/pulp-fiction-john-travolta.gif" alt="">
+					</h2>
 				</div>
 				<div class="flip-card-back">
 					<h2 class="title">Titolo: </h2>
@@ -41,17 +43,12 @@ export default {
 					<h2 class="title">Titolo originale: </h2>
 					<h2 v-if="movie.original_title">{{ movie.original_title }}</h2>
 					<h2 v-else>{{ movie.original_name }}</h2>
-					<div class="mb-4" v-if="movie.vote_average != 0">
+					<div class="mb-4">
 						<h2 class="mb-0">Voto: </h2>
 						<font-awesome-icon v-for="n in getStars(movie.vote_average)" :icon="['fas', 'star']"
 							class="yellow" />
 						<font-awesome-icon v-for="n in (5 - getStars(movie.vote_average))" :icon="['fas', 'star']"
 							class="text-white" />
-					</div>
-
-					<div v-if="(Math.ceil(movie.vote_average / 2)) == 0">
-						<h2>Voto:</h2>
-						<font-awesome-icon v-for="n in (5)" :icon="['fas', 'star']" class="text-white mb-4" />
 					</div>
 					<h2 class="lang">Trama:</h2>
 					<h2>{{ movie.overview }}</h2>
@@ -84,8 +81,9 @@ export default {
 }
 
 .noCover {
-	text-align: center;
-	padding-top: 14rem;
+	// text-align: center;
+	// padding-top: 14rem;
+	height: 100%;
 }
 
 .title {
