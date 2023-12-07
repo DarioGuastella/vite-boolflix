@@ -39,7 +39,7 @@ export default {
 					<h2 v-if="movie.title">{{ movie.title }}</h2>
 					<h2 v-else>{{ movie.name }}</h2>
 					<h2 class="title">Titolo originale: </h2>
-					<h2 v-if="original_title">{{ movie.original_title }}</h2>
+					<h2 v-if="movie.original_title">{{ movie.original_title }}</h2>
 					<h2 v-else>{{ movie.original_name }}</h2>
 					<div class="mb-4" v-if="movie.vote_average != 0">
 						<h2 class="mb-0">Voto: </h2>
