@@ -75,7 +75,7 @@ export default {
 		<div class="wrapper">
 			<DataCard v-for="movie in store.movies" :data="movie" />
 		</div>
-		<h2 v-if="store.movies.length">Serie tv</h2><br>
+		<h2 v-if="store.tvSeries.length">Serie tv</h2><br>
 		<div class="wrapper">
 			<!-- <TvSeriesCard v-for="serie in store.tvSeries" :tv="serie" /> -->
 			<DataCard v-for="serie in store.tvSeries" :data="serie" />
